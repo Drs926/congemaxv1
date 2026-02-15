@@ -1,0 +1,6 @@
+# MVP_SCOPE_LOCK.md
+
+Projet : CongéMax
+Version : V1
+Statut : EN COURS
+Date : 2026-02-15
