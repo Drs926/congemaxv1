@@ -1,0 +1,17 @@
+{
+  "annual_cap_days": {
+    "first_year": 213,
+    "after_1_year": 212,
+    "notes": "Article 55 c (p.30): 213 puis 212 après 1 an de présence (renvoi art. 63)"
+  },
+  "cp_base": 25,
+  "continuous_service": true,
+  "night_work_allowed": true,
+  "weekend_holiday_work_context": "Article 57 (p.30) + Article 60 (p.31): travail dimanche/jours fériés possible avec majorations; modalités détaillées par accords d'entreprise",
+  "sources": {
+    "annual_cap_days": "p.30 (Article 55 c)",
+    "cp_base": "p.32 (Article 63), p.29 (Article 55 a)",
+    "continuous_service": "p.30 (Article 56)",
+    "night_work_allowed": "p.30 (Article 57), p.31 (Article 60)"
+  }
+}
