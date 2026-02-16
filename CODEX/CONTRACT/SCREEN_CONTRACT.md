@@ -76,7 +76,6 @@ Affiche :
 - Convention active
 - Raccourci optimisation locale
 - Raccourci optimisation annuelle
-- Statut premium
 
 ### 3.4 Optimisation locale (Gratuit)
 
@@ -106,6 +105,11 @@ Sections collapsibles :
 - Référence convention
 
 ### 3.5 Optimisation annuelle (Premium)
+- Premium feature: optimization annuelle
+- Accès uniquement si l’utilisateur choisit une option premium.
+- Label: “Premium”
+- Description: “Accès réservé aux abonnés Premium”
+- CTA: “Passer en Premium”
 
 #### Screen_12_Annual_Input
 - Rappel capital
