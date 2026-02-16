@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+    </style>
+<title>CongéMax Dashboard</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Status Bar Spacer (iOS Style) -->
+<div class="h-12 w-full safe-top"></div>
+<main class="px-5 pb-32">
+<!-- Header -->
+<header class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy0uuJxy92SywBFAtJfQCf7KHNA0zCQwyFEha5LXypjzUVF56_sJenbg6Bu9CgLccelMdyjgzAe0vz5itodiCwE2XK7QvTrBS8IS_zrmQGOPcUmUa8LLOMS-CRWygWWPkB_Fsmlb6JovLFVxNfUkzSCu2NDEfWOkKIfisCG-sqwYA6E3_Hif-OfWfgsoQM6Iq-7S8Aw8bogG-UHaJYCrPIQrgD5jSc6r24rrp4MGQHnE5xvvR4ocEwhS4mYbZn9TkJG8cVYXe-5oEL"/>
+</div>
+<div>
+<h1 class="text-sm text-slate-500 dark:text-slate-400 font-medium leading-none mb-1">Bonjour, Marc</h1>
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold">CongéMax</span>
+<span class="bg-primary/10 border border-primary/30 text-primary text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full">Premium</span>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300">
+<span class="material-icons-round">notifications_none</span>
+</button>
+</header>
+<!-- Main Leave Card -->
+<section class="mb-6">
+<div class="bg-white dark:bg-white/5 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-white/5">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold">Capital Restant</h2>
+<span class="text-xs text-slate-500 bg-slate-100 dark:bg-white/10 px-3 py-1 rounded-full">Année 2024</span>
+</div>
+<div class="flex items-center justify-center relative py-4">
+<!-- Circular Progress -->
+<div class="relative w-48 h-48">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-slate-100 dark:text-white/5" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="150" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-extrabold">18</span>
+<span class="text-xs font-medium text-slate-500 uppercase tracking-wide">Jours restants</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-slate-100 dark:border-white/5">
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Acquis</p>
+<p class="text-lg font-bold">25.0</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Utilisés</p>
+<p class="text-lg font-bold text-slate-400">7.0</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Convention Card -->
+<section class="mb-8">
+<div class="flex items-center justify-between p-4 bg-primary/5 border border-primary/20 rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons-round">description</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 font-medium">Convention Active</p>
+<p class="text-sm font-bold">IDCC 1486 : Bureaux d'Études (Syntec)</p>
+</div>
+</div>
+<span class="material-icons-round text-slate-400 text-sm">chevron_right</span>
+</div>
+</section>
+<!-- Optimization Shortcuts -->
+<section class="mb-8">
+<h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Outils d'Optimisation</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Local Optimization -->
+<button class="flex flex-col items-start p-5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl text-left active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4">
+<span class="material-icons-round">bolt</span>
+</div>
+<p class="font-bold text-base leading-tight mb-1">Optimisation Locale</p>
+<p class="text-[11px] text-slate-500">Ponts &amp; Weekends prolongés</p>
+</button>
+<!-- Yearly Optimization -->
+<button class="flex flex-col items-start p-5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl text-left active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+<span class="material-icons-round">calendar_today</span>
+</div>
+<p class="font-bold text-base leading-tight mb-1">Optimisation Annuelle</p>
+<p class="text-[11px] text-slate-500">Planification 12 mois</p>
+</button>
+</div>
+</section>
+<!-- Recent Activity Mini Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Dernière demande</h3>
+<span class="text-xs text-primary font-bold">Voir tout</span>
+</div>
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-400">
+<span class="material-icons-round">flight_takeoff</span>
+</div>
+<div>
+<p class="text-sm font-bold">Vacances d'Hiver</p>
+<p class="text-xs text-slate-500">12 Feb — 19 Feb (5 jours)</p>
+</div>
+</div>
+<div class="bg-amber-500/10 text-amber-500 px-2 py-1 rounded text-[10px] font-bold uppercase">En attente</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 safe-bottom z-50">
+<div class="flex justify-around items-center h-16 max-w-md mx-auto px-4">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-bold">Accueil</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">calendar_month</span>
+<span class="text-[10px] font-bold">Calendrier</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 relative">
+<div class="absolute -top-10 bg-primary shadow-lg shadow-primary/30 w-12 h-12 rounded-full flex items-center justify-center text-background-dark transform active:scale-90 transition-transform">
+<span class="material-icons-round text-2xl">auto_awesome</span>
+</div>
+<span class="h-4"></span>
+<span class="text-[10px] font-bold mt-1">Optimiseur</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">history</span>
+<span class="text-[10px] font-bold">Historique</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person_outline</span>
+<span class="text-[10px] font-bold">Profil</span>
+</button>
+</div>
+</nav>
+<!-- Home Indicator Spacer -->
+<div class="h-6 w-full"></div>
+</body></html>
