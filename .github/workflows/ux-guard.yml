@@ -1,0 +1,156 @@
+name: UX Guard
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ux-guard:
+    name: Enforce Architecture B UX Exports
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve diff range
+        id: range
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+            HEAD_SHA="${{ github.sha }}"
+
+            if [[ "$BASE_SHA" == "0000000000000000000000000000000000000000" ]]; then
+              BASE_SHA="$(git rev-list --max-parents=0 "$HEAD_SHA" | tail -n 1)"
+            fi
+          fi
+
+          echo "base_sha=$BASE_SHA" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+          echo "Diff range: $BASE_SHA..$HEAD_SHA"
+
+      - name: Guard exports in CODEX/UX/exports
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_SHA="${{ steps.range.outputs.base_sha }}"
+          HEAD_SHA="${{ steps.range.outputs.head_sha }}"
+
+          CHANGED_EXPORTS="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -E '^CODEX/UX/exports/.*\.(html|png)$' || true)"
+
+          if [[ -z "$CHANGED_EXPORTS" ]]; then
+            echo "No UX export changes detected. Guard passed."
+            exit 0
+          fi
+
+          echo "Changed UX exports:"
+          echo "$CHANGED_EXPORTS"
+
+          if [[ ! -d "CODEX/UX/DEP" ]]; then
+            echo "::error::UX guard failed: CODEX/UX/DEP is missing."
+            exit 1
+          fi
+
+          if [[ ! -f "CODEX/UX/CANONICAL_SCREENS.md" ]]; then
+            echo "::error::UX guard failed: CODEX/UX/CANONICAL_SCREENS.md is missing."
+            exit 1
+          fi
+
+          COMMIT_SUBJECTS="$(git log --format=%s "$BASE_SHA..$HEAD_SHA")"
+          if ! echo "$COMMIT_SUBJECTS" | grep -Eq '\[(PLAN|DECISION):[^]]+\]'; then
+            echo "::error::UX guard failed: export changes require at least one commit tagged [PLAN:...] or [DECISION:...]."
+            exit 1
+          fi
+
+          declare -A SECTION_DEP=()
+          declare -A SECTION_SPEC=()
+          declare -A SECTION_GATE=()
+          declare -A EXPORT_SECTION=()
+
+          CURRENT_SECTION=""
+          while IFS= read -r LINE; do
+            LINE="${LINE%$'\r'}"
+
+            if [[ "$LINE" =~ ^##[[:space:]]+(.+) ]]; then
+              CURRENT_SECTION="${BASH_REMATCH[1]}"
+              continue
+            fi
+
+            [[ -z "$CURRENT_SECTION" ]] && continue
+
+            case "$LINE" in
+              "- DEP: "*) SECTION_DEP["$CURRENT_SECTION"]="${LINE#- DEP: }" ;;
+              "- DESIGN_SPEC: "*) SECTION_SPEC["$CURRENT_SECTION"]="${LINE#- DESIGN_SPEC: }" ;;
+              "- Gate: "*) SECTION_GATE["$CURRENT_SECTION"]="${LINE#- Gate: }" ;;
+              "- Export HTML: "*) EXPORT_SECTION["${LINE#- Export HTML: }"]="$CURRENT_SECTION" ;;
+              "- Export PNG: "*) EXPORT_SECTION["${LINE#- Export PNG: }"]="$CURRENT_SECTION" ;;
+            esac
+          done < CODEX/UX/CANONICAL_SCREENS.md
+
+          FAILURE=0
+
+          while IFS= read -r EXPORT_PATH; do
+            [[ -z "$EXPORT_PATH" ]] && continue
+
+            echo "Checking export: $EXPORT_PATH"
+
+            if [[ "$EXPORT_PATH" != *"-B_"* ]]; then
+              echo "::error file=$EXPORT_PATH::Non-canonical export: filename must include '-B_' (Architecture B)."
+              FAILURE=1
+              continue
+            fi
+
+            SECTION_NAME="${EXPORT_SECTION[$EXPORT_PATH]:-}"
+            if [[ -z "$SECTION_NAME" ]]; then
+              echo "::error file=$EXPORT_PATH::Export not declared in CODEX/UX/CANONICAL_SCREENS.md."
+              FAILURE=1
+              continue
+            fi
+
+            DEP_PATH="${SECTION_DEP[$SECTION_NAME]:-}"
+            DESIGN_SPEC_PATH="${SECTION_SPEC[$SECTION_NAME]:-}"
+            GATE_REPORT_PATH="${SECTION_GATE[$SECTION_NAME]:-}"
+
+            if [[ -z "$DEP_PATH" || -z "$DESIGN_SPEC_PATH" || -z "$GATE_REPORT_PATH" ]]; then
+              echo "::error file=$EXPORT_PATH::Missing canonical mapping in CODEX/UX/CANONICAL_SCREENS.md (DEP/DESIGN_SPEC/Gate)."
+              FAILURE=1
+              continue
+            fi
+
+            if [[ ! -f "$DEP_PATH" ]]; then
+              echo "::error file=$EXPORT_PATH::Missing DEP file: $DEP_PATH"
+              FAILURE=1
+            fi
+
+            if [[ ! -f "$DESIGN_SPEC_PATH" ]]; then
+              echo "::error file=$EXPORT_PATH::Missing DESIGN_SPEC file: $DESIGN_SPEC_PATH"
+              FAILURE=1
+            fi
+
+            if [[ ! -f "$GATE_REPORT_PATH" ]]; then
+              echo "::error file=$EXPORT_PATH::Missing gate report: $GATE_REPORT_PATH"
+              FAILURE=1
+            elif ! grep -Eiq '^VERDICT:[[:space:]]*PASS[[:space:]]*$' "$GATE_REPORT_PATH"; then
+              echo "::error file=$EXPORT_PATH::Gate report is not PASS: $GATE_REPORT_PATH"
+              FAILURE=1
+            fi
+          done <<< "$CHANGED_EXPORTS"
+
+          if [[ "$FAILURE" -ne 0 ]]; then
+            echo "::error::UX guard failed: one or more exports are not Architecture B compliant."
+            exit 1
+          fi
+
+          echo "UX guard passed: all changed exports are Architecture B canonical."
