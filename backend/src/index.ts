@@ -2,12 +2,14 @@ import Fastify from "fastify";
 import { authRoutes } from "./auth/routes.js";
 import { requireAuth } from "./auth/middleware.js";
 import { conventionRoutes } from "./conventions/routes.js";
+import { profileRoutes } from "./profile/routes.js";
 
 const app = Fastify({ logger: true });
 const port = Number(process.env.PORT ?? 3001);
 
 app.register(authRoutes);
 app.register(conventionRoutes);
+app.register(profileRoutes);
 
 app.get("/health", async () => {
   return { ok: true };

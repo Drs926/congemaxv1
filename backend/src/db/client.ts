@@ -15,3 +15,12 @@ export const getDb = (): Pool => {
   pool = new Pool({ connectionString: databaseUrl });
   return pool;
 };
+
+export const closeDb = async (): Promise<void> => {
+  if (!pool) {
+    return;
+  }
+
+  await pool.end();
+  pool = null;
+};
