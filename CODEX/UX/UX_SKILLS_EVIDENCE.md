@@ -97,3 +97,24 @@
 ## VERDICT
 - PASS / BLOCK: PASS
 - raison_unique (1 phrase): Le Dashboard V2 respecte la structure freemium contractuelle et fournit les exports requis sans dérive fonctionnelle.
+
+## CMX-M-001-B — Architecture B
+- mode: DEP -> DESIGN_SPEC -> Gate -> Render
+- dep: CODEX/UX/DEP/Screen_08_Dashboard.dep.yaml
+- design_spec: CODEX/UX/DEP/Screen_08_Dashboard.design_spec.json
+- gate_report: CODEX/UX/DEP/Screen_08_Dashboard.gate_report.md
+- exports:
+  - CODEX/UX/exports/CMX-M-001-B_dashboard.html
+  - CODEX/UX/exports/CMX-M-001-B_dashboard.png
+- stitch_stage_1:
+  - project: projects/10674022190143911975
+  - session: 11385396720487667743
+  - output: DESIGN_SPEC JSON ONLY
+- stitch_stage_2:
+  - project: projects/10674022190143911975
+  - session: 3921979762738656080
+  - screen: projects/10674022190143911975/screens/c99d7c222cf8460cabe719249720903b
+- gate_verdict: PASS
+- notes:
+  - docs gelés non modifiés (DESIGN_SYSTEM, SCREEN_CONTRACT, COMPONENT_LIBRARY)
+  - rendu final exécuté uniquement après PASS gate

@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DESIGN_SPEC",
+  "type": "object",
+  "required": ["screen_id", "blocks", "bottom_nav"],
+  "additionalProperties": false,
+  "properties": {
+    "screen_id": { "type": "string" },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["block_id", "components"],
+        "additionalProperties": false,
+        "properties": {
+          "block_id": { "type": "string" },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "tokens"],
+              "additionalProperties": false,
+              "properties": {
+                "type": { "type": "string" },
+                "tokens": {
+                  "type": "object",
+                  "required": ["color", "type", "spacing", "radius", "elevation", "icon"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "color": {
+                      "type": "array",
+                      "items": { "pattern": "^color\\.[A-Za-z]+$" }
+                    },
+                    "type": {
+                      "type": "array",
+                      "items": { "pattern": "^type\\.(h1|h2|body|caption|kpi)$" }
+                    },
+                    "spacing": {
+                      "type": "array",
+                      "items": { "enum": [0,4,8,12,16,24,32] }
+                    },
+                    "radius": {
+                      "type": "array",
+                      "items": { "enum": [0,10,12,16,999] }
+                    },
+                    "elevation": {
+                      "type": "array",
+                      "items": { "enum": ["elevation.none","elevation.card","elevation.sheet"] }
+                    },
+                    "icon": {
+                      "type": "array",
+                      "items": { "enum": [16,20,24] }
+                    }
+                  }
+                },
+                "content": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "text": { "type": "string" },
+                    "value": { "type": "number" },
+                    "aria_label": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "bottom_nav": {
+      "type": "object",
+      "required": ["items", "active"],
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "active": { "type": "string" }
+      }
+    }
+  }
+}

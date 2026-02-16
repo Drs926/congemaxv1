@@ -1,0 +1,104 @@
+dep_version: 1
+screen_id: Screen_08_Dashboard
+mode: PROVECCO_STRICT_B
+source_docs:
+  - CODEX/UX/DESIGN_SYSTEM.md
+  - CODEX/CONTRACT/SCREEN_CONTRACT.md
+  - CODEX/UX/COMPONENT_LIBRARY.md
+
+layout_contract:
+  blocks_order_strict:
+    - Header
+    - PageTitle
+    - KPI_Card
+    - LocalOptimization_Card
+    - AnnualOptimization_PremiumCard
+    - BottomNav
+  no_other_blocks: true
+  no_global_premium_status: true
+  no_decorative_elements: true
+
+content_exact:
+  header:
+    app_name: "CongéMax"
+  page_title:
+    title: "Tableau de bord"
+  kpi_card:
+    cp_value: 25
+    cp_label: "CP restants"
+    rtt_value: 8
+    rtt_label: "RTT restants"
+    convention: "Syntec"
+  local_optimization:
+    title: "Optimisation locale"
+    description: "Préparez vos prochaines absences en exploitant les jours fériés."
+    cta: "Optimiser mes prochains congés"
+  annual_optimization_premium:
+    badge: "Premium"
+    title: "Optimisation annuelle"
+    description: "Accès réservé aux abonnés Premium."
+    cta: "Passer en Premium"
+  bottom_nav:
+    items: ["Dashboard", "Local", "Annuel", "Compte"]
+    active: "Dashboard"
+
+component_set_allowed:
+  - AppShell
+  - TopBar
+  - Card
+  - KPI_Card
+  - MetricRow
+  - ButtonPrimary
+  - ButtonSecondary
+  - IconButton
+
+token_contract:
+  colors_allowed:
+    - color.primary
+    - color.onPrimary
+    - color.success
+    - color.onSuccess
+    - color.danger
+    - color.onDanger
+    - color.warning
+    - color.onWarning
+    - color.info
+    - color.onInfo
+    - color.bg
+    - color.surface
+    - color.surface2
+    - color.border
+    - color.textPrimary
+    - color.textSecondary
+    - color.textMuted
+    - color.disabled
+    - color.focus
+  type_allowed:
+    - type.h1
+    - type.h2
+    - type.body
+    - type.caption
+    - type.kpi
+
+scales:
+  spacing_allowed: [0, 4, 8, 12, 16, 24, 32]
+  radius_allowed: [0, 10, 12, 16, 999]
+  elevation_allowed: [elevation.none, elevation.card, elevation.sheet]
+  max_elevation_levels_used: 2
+  icon_sizes_allowed: [16, 20, 24]
+  touch_target_min: 44
+
+motion:
+  durations_allowed_ms: [120, 180, 240]
+  rule: feedback_only
+
+prohibitions:
+  - no_hex_colors
+  - no_px_libre
+  - no_inline_styles
+  - no_extra_copy
+  - no_extra_blocks
+  - no_global_premium_badge
+  - no_gradients
+
+output_stage: DESIGN_SPEC_JSON_ONLY

@@ -1,0 +1,226 @@
+{
+  "screen_id": "Screen_08_Dashboard",
+  "blocks": [
+    {
+      "block_id": "Header",
+      "components": [
+        {
+          "type": "TopBar",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary"],
+            "type": ["type.h2"],
+            "spacing": [16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "CongéMax"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "PageTitle",
+      "components": [
+        {
+          "type": "MetricRow",
+          "tokens": {
+            "color": ["color.textPrimary"],
+            "type": ["type.h1"],
+            "spacing": [24, 16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "Tableau de bord"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "KPI_Card",
+      "components": [
+        {
+          "type": "KPI_Card",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.textSecondary"],
+            "type": ["type.kpi", "type.caption"],
+            "spacing": [16, 12],
+            "radius": [16],
+            "elevation": ["elevation.card"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "CP restants",
+            "value": 25
+          }
+        },
+        {
+          "type": "KPI_Card",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.textSecondary"],
+            "type": ["type.kpi", "type.caption"],
+            "spacing": [16, 12],
+            "radius": [16],
+            "elevation": ["elevation.card"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "RTT restants",
+            "value": 8
+          }
+        },
+        {
+          "type": "MetricRow",
+          "tokens": {
+            "color": ["color.textSecondary"],
+            "type": ["type.caption"],
+            "spacing": [8, 16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [16]
+          },
+          "content": {
+            "text": "Syntec"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "LocalOptimization_Card",
+      "components": [
+        {
+          "type": "Card",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.textSecondary", "color.border"],
+            "type": ["type.h2", "type.body"],
+            "spacing": [16, 8],
+            "radius": [16],
+            "elevation": ["elevation.card"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "Optimisation locale"
+          }
+        },
+        {
+          "type": "MetricRow",
+          "tokens": {
+            "color": ["color.textSecondary"],
+            "type": ["type.body"],
+            "spacing": [0, 16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Préparez vos prochaines absences en exploitant les jours fériés."
+          }
+        },
+        {
+          "type": "ButtonPrimary",
+          "tokens": {
+            "color": ["color.primary", "color.onPrimary"],
+            "type": ["type.body"],
+            "spacing": [12, 24],
+            "radius": [999],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Optimiser mes prochains congés",
+            "aria_label": "Optimiser mes prochains congés"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "AnnualOptimization_PremiumCard",
+      "components": [
+        {
+          "type": "MetricRow",
+          "tokens": {
+            "color": ["color.warning", "color.onWarning"],
+            "type": ["type.caption"],
+            "spacing": [4, 8],
+            "radius": [999],
+            "elevation": ["elevation.none"],
+            "icon": [16]
+          },
+          "content": {
+            "text": "Premium"
+          }
+        },
+        {
+          "type": "Card",
+          "tokens": {
+            "color": ["color.surface2", "color.textPrimary", "color.textSecondary"],
+            "type": ["type.h2", "type.body"],
+            "spacing": [16, 12],
+            "radius": [16],
+            "elevation": ["elevation.card"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "Optimisation annuelle"
+          }
+        },
+        {
+          "type": "MetricRow",
+          "tokens": {
+            "color": ["color.textSecondary"],
+            "type": ["type.body"],
+            "spacing": [0, 16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Accès réservé aux abonnés Premium."
+          }
+        },
+        {
+          "type": "ButtonSecondary",
+          "tokens": {
+            "color": ["color.primary", "color.border", "color.surface"],
+            "type": ["type.body"],
+            "spacing": [12, 24],
+            "radius": [999],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Passer en Premium",
+            "aria_label": "Passer en Premium"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "BottomNav",
+      "components": [
+        {
+          "type": "IconButton",
+          "tokens": {
+            "color": ["color.surface", "color.primary", "color.textSecondary"],
+            "type": ["type.caption"],
+            "spacing": [8, 0],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "Dashboard",
+            "aria_label": "Dashboard"
+          }
+        }
+      ]
+    }
+  ],
+  "bottom_nav": {
+    "items": ["Dashboard", "Local", "Annuel", "Compte"],
+    "active": "Dashboard"
+  }
+}
