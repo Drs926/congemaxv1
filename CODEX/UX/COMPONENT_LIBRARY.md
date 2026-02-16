@@ -18,7 +18,7 @@
 
 ### 1.2 TopBar
 - Titre: type.h2 + color.textPrimary
-- Action droite optionnelle: icon 20/24, touch.min=44
+- Action droite optionnelle: icon.20 ou icon.24, touch.min=44
 - Séparateur bas: color.border
 
 ### 1.3 Card (base)
@@ -103,7 +103,7 @@ Liste des jours avec raison (WORKED_UNIT_0 / BLOCKED / NOT_POSABLE / CP_USED)
 ### 4.2 SelectRow (picker)
 But: sélectionner un élément (ex: convention, work_type, granularity).
 - Row cliquable (touch.min=44)
-- label gauche, valeur droite, chevron icon 20
+- label gauche, valeur droite, chevron icon.20
 États: default/pressed/disabled
 
 ### 4.3 ToggleRow
@@ -124,10 +124,10 @@ But: capital CP/RTT, années ancienneté.
 But: représenter un jour dans une grille.
 Données: date, worked_unit (0/0.5/1), posable, blocked
 Affichage:
-- default: surface
-- non-posables: atténué (textMuted)
-- blocked: indicateur danger (sans agressivité)
-- worked_unit=0: indicateur info
+- default: color.surface
+- non-posables: atténué (color.textMuted)
+- blocked: indicateur color.danger (sans agressivité)
+- worked_unit=0: indicateur color.info
 Contraintes:
 - touch.min=44
 - états pressed/selected obligatoires
@@ -142,9 +142,9 @@ But: état court (Blocked, Non posable, 0 travaillé, CP utilisé)
 - padding horizontal spacing.12, vertical spacing.4/8
 - texte: Caption
 Couleurs:
-- blocked -> danger (bg léger) + onDanger
-- info -> info + onInfo
-- neutral -> surface2 + textSecondary
+- blocked -> color.danger (bg léger) + color.onDanger
+- info -> color.info + color.onInfo
+- neutral -> color.surface2 + color.textSecondary
 
 ---
 
@@ -165,9 +165,9 @@ Couleurs:
 - pas de jargon technique
 
 ### 6.4 Toast / InlineAlert
-- succès -> success
-- erreur -> danger
-- info -> info
+- succès -> color.success
+- erreur -> color.danger
+- info -> color.info
 Règle: messages courts, actionnable.
 
 ---
@@ -187,7 +187,7 @@ Règle: messages courts, actionnable.
 - bg transparent, border color.border, texte color.textPrimary
 
 ### 7.3 IconButton
-- icon 20/24, touch.min=44
+- icon.20 ou icon.24, touch.min=44
 - pressed state obligatoire
 
 ---
