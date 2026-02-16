@@ -45,3 +45,55 @@
 ## VERDICT
 - PASS / BLOCK: PASS
 - raison_unique (1 phrase): L'écran Dashboard a été généré en un seul passage Stitch avec composants/tokens contractuels et preuves d'exports.
+
+## Écran — Screen_08_Dashboard (CMX-M-001-V2, STRICT MODE)
+- name: Screen_08_Dashboard
+- route: Dashboard
+- source: CODEX/CONTRACT/SCREEN_CONTRACT.md (3.3 Dashboard + 3.5 Optimisation annuelle Premium)
+
+## clarity-gate
+- objectif_fonctionnel: Afficher la vue capital (CP + RTT), accès direct à l’optimisation locale (gratuite), et introduction de l’optimisation annuelle Premium sans tonalité marketing.
+- resultat_utilisateur_attendu: Compréhension immédiate du statut décisionnel et accès en 1 tap vers Local/Annuel.
+- non_objectifs: Bannières marketing, bruit visuel, layout RH institutionnel.
+
+## c4-context
+- place_dans_flux: Entrée post-login.
+- entree(s): capital (CP/RTT), convention active, statut d’accès annuel premium.
+- sortie(s): navigation vers Planning, Optimisation locale, Optimisation annuelle.
+- dependances (backend/data): données profil/capital/convention ; aucune logique moteur côté UI.
+
+## core-components
+- composants (issus de COMPONENT_LIBRARY.md): AppShell, TopBar, Card, KPI_Card, MetricRow, ButtonPrimary, ButtonSecondary, IconButton.
+- etats obligatoires (default/loading/empty/error): pris en compte au niveau contrat écran ; composant interactif en default/pressed/disabled.
+- interactions (pressed/disabled/etc): CTA locale primaire, CTA premium bordée, touch targets >= 44.
+- structure blocs:
+  - Block 1 Capital Card: CP restants + RTT restants.
+  - Block 2 Local Optimization: action locale sans indicateur premium.
+  - Block 3 Annual Optimization (Premium): label Premium, description d’accès réservé, CTA Passer en Premium.
+
+## design-md (Stitch MCP)
+- mcp_server: stitch
+- tool_id: stitch.generate_screen_from_text + stitch.get_screen
+- exports:
+  - png: CODEX/UX/exports/CMX-M-001-V2_dashboard.png
+  - html (si dispo): CODEX/UX/exports/CMX-M-001-V2_dashboard.html
+- notes_generation: Génération unique V2 strict mode dans project `15621358717208857245`, screen `4d6fc8abc593453d9dcffe6b3ae42194`.
+
+## wcag-audit-patterns
+- contraste_ok: Oui (texte principal/secondaire lisible sur surfaces dark).
+- tailles_tactiles_ok (>=44px): Oui (CTA et tabs à h-12).
+- etats_interactifs_visibles: Oui (pressed visible; hover/active présents).
+- erreurs_lisibles (si formulaire): N/A (pas de formulaire).
+- focus_states_visibles_color_focus: À renforcer en implémentation mobile finale (présence visuelle partielle dans export HTML).
+- premium_badge_readable_dark_mode: Oui.
+
+## context-degradation
+- coherence_avec_ecrans_existants: Oui sur la structure dashboard (hub décisionnel avec capital + local + annuel premium + tabs bas).
+- nouveaux_tokens_introduits (doit être NON): NON (aucun token contractuel métier ajouté côté contenu).
+- incoherences_detectees: Aucune incohérence structurelle bloquante détectée sur les blocs fonctionnels attendus.
+- cause_si_incoherence: N/A.
+- action_corrective_amont: N/A.
+
+## VERDICT
+- PASS / BLOCK: PASS
+- raison_unique (1 phrase): Le Dashboard V2 respecte la structure freemium contractuelle et fournit les exports requis sans dérive fonctionnelle.
