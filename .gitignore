@@ -1,1 +1,5 @@
+.agents/
+_pg/
+_pg/**
 scripts/local.dev.json
+scripts/pg.pid
