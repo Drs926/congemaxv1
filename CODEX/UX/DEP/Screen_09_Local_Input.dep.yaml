@@ -1,0 +1,101 @@
+dep_version: 1
+screen_id: Screen_09_Local_Input
+mode: PROVECCO_STRICT_B
+source_docs:
+  - CODEX/UX/DESIGN_SYSTEM.md
+  - CODEX/CONTRACT/SCREEN_CONTRACT.md
+  - CODEX/UX/COMPONENT_LIBRARY.md
+
+layout_contract:
+  blocks_order_strict:
+    - Header
+    - PageTitle
+    - Date_Input_Block
+    - Mode_Toggle_Block
+    - Delta_Block
+    - Optimize_Button_Block
+    - BottomNav
+  no_other_blocks: true
+  no_global_premium_status: true
+  no_decorative_elements: true
+
+content_exact:
+  header:
+    app_name: "CongéMax"
+  page_title:
+    title: "Optimisation locale"
+  date_input:
+    label: "Sélection date cible"
+  mode_toggle:
+    left: "Strict"
+    right: "Flexible"
+  delta:
+    label: "Δ"
+    visible_only_when_flexible: true
+  optimize_button:
+    cta: "Optimiser"
+  bottom_nav:
+    items: ["Dashboard", "Local", "Annuel", "Compte"]
+    active: "Local"
+
+component_set_allowed:
+  - AppShell
+  - TopBar
+  - Card
+  - TextInput
+  - ToggleRow
+  - NumberInput
+  - ButtonPrimary
+  - IconButton
+
+token_contract:
+  colors_allowed:
+    - color.primary
+    - color.onPrimary
+    - color.success
+    - color.onSuccess
+    - color.danger
+    - color.onDanger
+    - color.warning
+    - color.onWarning
+    - color.info
+    - color.onInfo
+    - color.bg
+    - color.surface
+    - color.surface2
+    - color.border
+    - color.textPrimary
+    - color.textSecondary
+    - color.textMuted
+    - color.disabled
+    - color.focus
+  type_allowed:
+    - type.h1
+    - type.h2
+    - type.body
+    - type.caption
+    - type.kpi
+
+scales:
+  spacing_allowed: [0, 4, 8, 12, 16, 24, 32]
+  radius_allowed: [0, 10, 12, 16, 999]
+  elevation_allowed: [elevation.none, elevation.card, elevation.sheet]
+  max_elevation_levels_used: 2
+  icon_sizes_allowed: [16, 20, 24]
+  touch_target_min: 44
+
+motion:
+  durations_allowed_ms: [120, 180, 240]
+  rule: feedback_only
+
+prohibitions:
+  - no_custom_calendar
+  - no_extra_metrics
+  - no_marketing_text
+  - no_extra_explanations
+  - no_nonlisted_elements
+  - no_hex_colors
+  - no_px_libre
+  - no_inline_styles
+
+output_stage: DESIGN_SPEC_JSON_ONLY

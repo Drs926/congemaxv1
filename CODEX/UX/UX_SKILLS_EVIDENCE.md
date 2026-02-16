@@ -118,3 +118,27 @@
 - notes:
   - docs gelés non modifiés (DESIGN_SYSTEM, SCREEN_CONTRACT, COMPONENT_LIBRARY)
   - rendu final exécuté uniquement après PASS gate
+
+## CMX-M-009-B — Architecture B
+- screen_id: Screen_09_Local_Input
+- dep: CODEX/UX/DEP/Screen_09_Local_Input.dep.yaml
+- design_spec: CODEX/UX/DEP/Screen_09_Local_Input.design_spec.json
+- gate_report: CODEX/UX/DEP/Screen_09_Local_Input.gate_report.md
+- exports:
+  - CODEX/UX/exports/CMX-M-009-B_local-input.html
+  - CODEX/UX/exports/CMX-M-009-B_local-input.png
+- stitch_stage_1:
+  - project: projects/4250423157287284664
+  - session: 13842590724384473056
+  - output: DESIGN_SPEC JSON ONLY
+- stitch_stage_2:
+  - project: projects/4250423157287284664
+  - session: 4141369107355452653
+  - screen: projects/4250423157287284664/screens/edd0369f162d43afb4eff8fa56ef2734
+- gate_verdict: PASS
+- contract_scope:
+  - date input: Sélection date cible
+  - mode toggle: Strict / Flexible
+  - delta block: Δ
+  - optimize button: Optimiser
+  - bottom nav: Dashboard, Local (actif), Annuel, Compte

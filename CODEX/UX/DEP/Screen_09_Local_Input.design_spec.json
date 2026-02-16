@@ -1,0 +1,149 @@
+{
+  "screen_id": "Screen_09_Local_Input",
+  "blocks": [
+    {
+      "block_id": "Header",
+      "components": [
+        {
+          "type": "TopBar",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary"],
+            "type": ["type.h2"],
+            "spacing": [16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "CongéMax",
+            "aria_label": "CongéMax"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "PageTitle",
+      "components": [
+        {
+          "type": "Card",
+          "tokens": {
+            "color": ["color.bg", "color.textPrimary"],
+            "type": ["type.h1"],
+            "spacing": [24],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [16]
+          },
+          "content": {
+            "text": "Optimisation locale",
+            "aria_label": "Optimisation locale"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "Date_Input_Block",
+      "components": [
+        {
+          "type": "TextInput",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.border"],
+            "type": ["type.body"],
+            "spacing": [16],
+            "radius": [12],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Sélection date cible",
+            "aria_label": "Sélection date cible"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "Mode_Toggle_Block",
+      "components": [
+        {
+          "type": "ToggleRow",
+          "tokens": {
+            "color": ["color.primary", "color.surface", "color.textPrimary"],
+            "type": ["type.body"],
+            "spacing": [16],
+            "radius": [12],
+            "elevation": ["elevation.none"],
+            "icon": [16]
+          },
+          "content": {
+            "text": "Strict / Flexible",
+            "aria_label": "Strict / Flexible"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "Delta_Block",
+      "components": [
+        {
+          "type": "NumberInput",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.border"],
+            "type": ["type.body"],
+            "spacing": [16],
+            "radius": [12],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Δ",
+            "aria_label": "Δ"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "Optimize_Button_Block",
+      "components": [
+        {
+          "type": "ButtonPrimary",
+          "tokens": {
+            "color": ["color.primary", "color.onPrimary"],
+            "type": ["type.h2"],
+            "spacing": [16],
+            "radius": [999],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "Optimiser",
+            "aria_label": "Optimiser"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "BottomNav",
+      "components": [
+        {
+          "type": "IconButton",
+          "tokens": {
+            "color": ["color.primary", "color.surface"],
+            "type": ["type.caption"],
+            "spacing": [8],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "Local",
+            "aria_label": "Local"
+          }
+        }
+      ]
+    }
+  ],
+  "bottom_nav": {
+    "items": ["Dashboard", "Local", "Annuel", "Compte"],
+    "active": "Local"
+  }
+}
