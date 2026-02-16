@@ -8,6 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/index.ts",
+    "dev:up": "powershell -ExecutionPolicy Bypass -File ../scripts/pg-start.ps1 && tsx watch src/index.ts",
+    "dev:down": "powershell -ExecutionPolicy Bypass -File ../scripts/pg-stop.ps1",
+    "dev:reset": "npm run db:migrate && npm run convention:seed",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "db:migrate": "tsx src/db/migrate.ts",
