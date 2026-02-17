@@ -1,0 +1,119 @@
+{
+  "screen_id": "Screen_10_Local_Results",
+  "blocks": [
+    {
+      "block_id": "Header",
+      "components": [
+        {
+          "type": "TopBar",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.border"],
+            "type": ["type.h2"],
+            "spacing": [16],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [24]
+          },
+          "content": {
+            "text": "CongéMax",
+            "aria_label": "Header CongéMax"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "PageTitle",
+      "components": [
+        {
+          "type": "Card",
+          "tokens": {
+            "color": ["color.bg", "color.textPrimary"],
+            "type": ["type.h1"],
+            "spacing": [24],
+            "radius": [0],
+            "elevation": ["elevation.none"],
+            "icon": [16]
+          },
+          "content": {
+            "text": "Optimisation locale",
+            "aria_label": "Titre Optimisation locale"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "Sort_Control_Block",
+      "components": [
+        {
+          "type": "ToggleRow",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.primary", "color.border"],
+            "type": ["type.body", "type.caption"],
+            "spacing": [16, 8],
+            "radius": [12, 999],
+            "elevation": ["elevation.none"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Trier par: Repos maximal (défaut) | Rendement",
+            "aria_label": "Trier par Repos maximal ou Rendement"
+          }
+        }
+      ]
+    },
+    {
+      "block_id": "Results_List_Block",
+      "components": [
+        {
+          "type": "OptionCard",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.textSecondary", "color.border", "color.primary"],
+            "type": ["type.body", "type.caption"],
+            "spacing": [16, 12, 8],
+            "radius": [12],
+            "elevation": ["elevation.card"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Dates: 2026-01-03 au 2026-01-12\nIcône mode: strict\nPosés: 4\nRepos: 9\nRendement: 75%",
+            "aria_label": "Option 1 résultats locaux"
+          }
+        },
+        {
+          "type": "OptionCard",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.textSecondary", "color.border", "color.primary"],
+            "type": ["type.body", "type.caption"],
+            "spacing": [16, 12, 8],
+            "radius": [12],
+            "elevation": ["elevation.card"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Dates: 2026-02-14 au 2026-02-22\nIcône mode: flexible\nPosés: 3\nRepos: 7\nRendement: 70%",
+            "aria_label": "Option 2 résultats locaux"
+          }
+        },
+        {
+          "type": "OptionCard",
+          "tokens": {
+            "color": ["color.surface", "color.textPrimary", "color.textSecondary", "color.border", "color.primary"],
+            "type": ["type.body", "type.caption"],
+            "spacing": [16, 12, 8],
+            "radius": [12],
+            "elevation": ["elevation.card"],
+            "icon": [20]
+          },
+          "content": {
+            "text": "Dates: 2026-03-09 au 2026-03-19\nIcône mode: strict\nPosés: 5\nRepos: 10\nRendement: 67%",
+            "aria_label": "Option 3 résultats locaux"
+          }
+        }
+      ]
+    }
+  ],
+  "bottom_nav": {
+    "items": ["Dashboard", "Local", "Annuel", "Compte"],
+    "active": "Local"
+  }
+}

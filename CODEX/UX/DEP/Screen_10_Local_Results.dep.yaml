@@ -1,0 +1,106 @@
+dep_version: 1
+screen_id: Screen_10_Local_Results
+mode: PROVECCO_STRICT_B
+source_docs:
+  - CODEX/UX/DESIGN_SYSTEM.md
+  - CODEX/CONTRACT/SCREEN_CONTRACT.md
+  - CODEX/UX/COMPONENT_LIBRARY.md
+
+layout_contract:
+  blocks_order_strict:
+    - Header
+    - PageTitle
+    - Sort_Control_Block
+    - Results_List_Block
+  no_other_blocks: true
+  no_global_kpi: true
+  no_marketing_copy: true
+  no_legal_wording: true
+
+content_exact:
+  header:
+    app_name: "CongéMax"
+  page_title:
+    title: "Optimisation locale"
+  sort_control:
+    label: "Trier par"
+    options:
+      - "Repos maximal"
+      - "Rendement"
+    default: "Repos maximal"
+  results_cards:
+    card_count: 3
+    required_fields:
+      - "Dates"
+      - "Icône mode"
+      - "Posés"
+      - "Repos"
+      - "Rendement"
+    metric_format:
+      - "Posés: X"
+      - "Repos: Y"
+      - "Rendement: Z%"
+  bottom_nav:
+    items: ["Dashboard", "Local", "Annuel", "Compte"]
+    active: "Local"
+
+component_set_allowed:
+  - AppShell
+  - TopBar
+  - Card
+  - ToggleRow
+  - OptionCard
+  - IconButton
+
+token_contract:
+  colors_allowed:
+    - color.primary
+    - color.onPrimary
+    - color.success
+    - color.onSuccess
+    - color.danger
+    - color.onDanger
+    - color.warning
+    - color.onWarning
+    - color.info
+    - color.onInfo
+    - color.bg
+    - color.surface
+    - color.surface2
+    - color.border
+    - color.textPrimary
+    - color.textSecondary
+    - color.textMuted
+    - color.disabled
+    - color.focus
+  type_allowed:
+    - type.h1
+    - type.h2
+    - type.body
+    - type.caption
+    - type.kpi
+
+scales:
+  spacing_allowed: [0, 4, 8, 12, 16, 24, 32]
+  radius_allowed: [0, 10, 12, 16, 999]
+  elevation_allowed: [elevation.none, elevation.card, elevation.sheet]
+  max_elevation_levels_used: 2
+  icon_sizes_allowed: [16, 20, 24]
+  touch_target_min: 44
+
+motion:
+  durations_allowed_ms: [120, 180, 240]
+  rule: feedback_only
+
+prohibitions:
+  - no_kpi_global
+  - no_summary_block
+  - no_marketing_text
+  - no_juridical_wording
+  - no_extra_metrics
+  - no_ui_side_calculation
+  - no_hex_colors
+  - no_px_libre
+  - no_inline_styles
+
+output_stage: DESIGN_SPEC_JSON_ONLY

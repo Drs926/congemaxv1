@@ -23,4 +23,14 @@ Source:
 - Export HTML: CODEX/UX/exports/CMX-M-009-B_local-input.html
 - Export PNG: CODEX/UX/exports/CMX-M-009-B_local-input.png
 
+## Local Results
+Canonical ID: CMX-M-010-B
+
+Source:
+- DEP: CODEX/UX/DEP/Screen_10_Local_Results.dep.yaml
+- DESIGN_SPEC: CODEX/UX/DEP/Screen_10_Local_Results.design_spec.json
+- Gate: CODEX/UX/DEP/Screen_10_Local_Results.gate_report.md
+- Export HTML: CODEX/UX/exports/CMX-M-010-B_local-results.html
+- Export PNG: CODEX/UX/exports/CMX-M-010-B_local-results.png
+
 Toute autre version est archivée et non contractuelle.

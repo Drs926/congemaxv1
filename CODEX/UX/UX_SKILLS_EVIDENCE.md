@@ -163,3 +163,24 @@
   - Delta_Block visible uniquement si mode==Flexible
   - preuve DESIGN_SPEC: visibility.when=mode + visibility.equals=Flexible
 - gate_verdict: PASS
+
+## CMX-M-010-B — Architecture B
+- screen_id: Screen_10_Local_Results
+- dep: CODEX/UX/DEP/Screen_10_Local_Results.dep.yaml
+- design_spec: CODEX/UX/DEP/Screen_10_Local_Results.design_spec.json
+- gate_report: CODEX/UX/DEP/Screen_10_Local_Results.gate_report.md
+- exports:
+  - CODEX/UX/exports/CMX-M-010-B_local-results.html
+  - CODEX/UX/exports/CMX-M-010-B_local-results.png
+- stitch_stage_1:
+  - output: DEP YAML verrouillé
+- stitch_stage_2:
+  - project: projects/4250423157287284664
+  - session: 10961538420119132923
+  - screen: projects/4250423157287284664/screens/0aa39e8474184970be52d17fbc109350
+- gate_verdict: PASS
+- contract_scope:
+  - sort control: Trier par / Repos maximal (défaut) / Rendement
+  - cards: 3 cartes uniquement
+  - metrics autorisées: Dates, Icône mode, Posés, Repos, Rendement
+  - bottom nav: Dashboard, Local (actif), Annuel, Compte
