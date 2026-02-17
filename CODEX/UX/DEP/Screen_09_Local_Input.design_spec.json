@@ -97,6 +97,10 @@
           "content": {
             "text": "Δ",
             "aria_label": "Δ"
+          },
+          "visibility": {
+            "when": "mode",
+            "equals": "Flexible"
           }
         }
       ]

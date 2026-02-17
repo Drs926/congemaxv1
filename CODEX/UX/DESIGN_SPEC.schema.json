@@ -61,6 +61,15 @@
                     "value": { "type": "number" },
                     "aria_label": { "type": "string" }
                   }
+                },
+                "visibility": {
+                  "type": "object",
+                  "required": ["when", "equals"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "when": { "type": "string", "enum": ["mode"] },
+                    "equals": { "type": "string", "enum": ["Flexible", "Strict"] }
+                  }
                 }
               }
             }

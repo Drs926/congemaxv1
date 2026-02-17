@@ -142,3 +142,24 @@
   - delta block: Δ
   - optimize button: Optimiser
   - bottom nav: Dashboard, Local (actif), Annuel, Compte
+
+## CMX-M-009-B2 — Delta Conditional Fix (Architecture B)
+- screen_id: Screen_09_Local_Input
+- dep: CODEX/UX/DEP/Screen_09_Local_Input.dep.yaml (inchangé)
+- design_spec: CODEX/UX/DEP/Screen_09_Local_Input.design_spec.json
+- gate_report: CODEX/UX/DEP/Screen_09_Local_Input.gate_report.md
+- exports:
+  - CODEX/UX/exports/CMX-M-009-B_local-input.html
+  - CODEX/UX/exports/CMX-M-009-B_local-input.png
+- stitch_stage_1:
+  - project: projects/4250423157287284664
+  - session: 13726037778003081270
+  - output: DESIGN_SPEC JSON ONLY avec `visibility` sur Delta_Block
+- stitch_stage_2:
+  - project: projects/4250423157287284664
+  - session: 14563570868016470286
+  - screen: projects/4250423157287284664/screens/da686720bd854386b5e76998e55d3976
+- corrective_rule:
+  - Delta_Block visible uniquement si mode==Flexible
+  - preuve DESIGN_SPEC: visibility.when=mode + visibility.equals=Flexible
+- gate_verdict: PASS

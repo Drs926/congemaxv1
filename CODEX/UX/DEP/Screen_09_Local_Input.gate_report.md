@@ -1,7 +1,7 @@
 # Screen_09_Local_Input.gate_report
 
 VERDICT: PASS
-RAISON UNIQUE: All schema and token-conformance checks passed.
+RAISON UNIQUE: All schema and token-conformance checks passed, including delta conditional rule.
 
 PREUVES:
 - Schema root keys: PASS
@@ -13,3 +13,4 @@ PREUVES:
 - Elevation levels <=2: PASS
 - Interactive aria labels: PASS
 - Additional properties: PASS
+- Delta conditional (mode==Flexible): PASS

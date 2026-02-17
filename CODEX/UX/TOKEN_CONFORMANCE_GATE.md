@@ -28,6 +28,11 @@ Un DESIGN\_SPEC est PASS uniquement si :
 
 10\. Aucune propriété JSON supplémentaire.
 
+11\. Pour Screen\_09\_Local\_Input : Delta\_Block MUST be conditional on mode==Flexible.
+Preuve requise dans DESIGN\_SPEC :
+- soit `visibility` explicite sur le composant Delta (`when: mode`, `equals: Flexible`)
+- soit absence du Delta\_Block en mode Strict documentée dans le DESIGN\_SPEC.
+
 
 
 Si un seul critère échoue :
